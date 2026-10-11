@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Lamia 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<div class="hearts" id="hearts"></div>
+
+<!-- Screen 1: Welcome -->
+<section class="screen active" id="intro">
+    <div class="card welcome-card">
+        <div class="cake">🎂</div>
+        <p class="small-text">A little surprise for</p>
+        <h1>Lamia <span>♡</span></h1>
+        <p class="description">
+            Someone's special day deserves something special...
+        </p>
+        <button id="startBtn">Open Your Surprise 💌</button>
+    </div>
+</section>
+
+<!-- Screen 2: Birthday Wish -->
+<section class="screen" id="wish">
+    <div class="card">
+        <div class="cake">🎉</div>
+        <p class="small-text">Today is all about you</p>
+        <h1>Happy Birthday,<br><span>Lamia!</span> 💗</h1>
+
+        <p class="wish-message">
+            May your days be filled with happiness, your smile never fade,
+            and all the little things you wish for come true.
+            Keep smiling, keep shining, and enjoy your special day
+            to the fullest! ✨
+        </p>
+
+        <div class="decorations">🌷 🎀 🧸 🌸</div>
+
+        <button id="memoriesBtn">A Little More... 💕</button>
+    </div>
+</section>
+
+<!-- Screen 3: Photos and Video -->
+<section class="screen" id="memories">
+    <div class="card memories-card">
+        <p class="small-text">Little moments, lovely memories</p>
+        <h1>For You, Lamia <span>♡</span></h1>
+
+        <div class="slider">
+
+            <div class="photo-wrap" id="photoWrap">
+                <img id="slidePhoto" src="images/photo1.jpg" alt="Memory">
+            </div>
+
+            <div class="video-wrap hidden" id="videoWrap">
+                <video id="slideVideo" controls playsinline preload="metadata">
+                    <source src="videos/birthday.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+            </div>
+
+        </div>
+
+        <p class="caption" id="caption">A little moment to remember ♡</p>
+
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+
+        <div class="slider-buttons">
+            <button class="secondary-btn" id="prevBtn">← Back</button>
+            <button id="nextBtn">Next →</button>
+        </div>
+
+        <p class="tiny-text">Made with a little love and lots of wishes 💗</p>
+    </div>
+</section>
+
+<!-- Screen 4: Final Message -->
+<section class="screen" id="final">
+    <div class="card">
+        <div class="cake">💖</div>
+        <p class="small-text">One last thing...</p>
+        <h1>Stay Happy,<br><span>Lamia!</span> 🌷</h1>
+
+        <p class="wish-message">
+            I hope this little surprise made you smile.
+            Keep being your lovely self, make beautiful memories,
+            and never forget to enjoy the little things in life.
+            You deserve a day as lovely as you are! 💕
+        </p>
+
+        <div class="decorations">🎂 🎀 🌸 🎁</div>
+
+        <button id="replayBtn">Watch Again ↻</button>
+    </div>
+</section>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>

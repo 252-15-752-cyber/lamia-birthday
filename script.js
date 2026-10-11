@@ -1,31 +1,28 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Get all screens
+    // Elements
     const intro = document.getElementById("intro");
     const wish = document.getElementById("wish");
     const memories = document.getElementById("memories");
     const finalScreen = document.getElementById("final");
 
-    // Get buttons
     const startBtn = document.getElementById("startBtn");
     const memoriesBtn = document.getElementById("memoriesBtn");
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
     const replayBtn = document.getElementById("replayBtn");
 
-    // Get photo and video elements
     const photoWrap = document.getElementById("photoWrap");
     const slidePhoto = document.getElementById("slidePhoto");
     const videoWrap = document.getElementById("videoWrap");
     const slideVideo = document.getElementById("slideVideo");
 
-    // Get caption, counter, and music
     const caption = document.getElementById("caption");
     const slideCounter = document.getElementById("slideCounter");
     const bgMusic = document.getElementById("bgMusic");
 
-    // All slides
+    // Slides
     const slides = [
         {
             type: "image",
@@ -63,14 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         screen.classList.add("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // Play background music
+    // Background music
     function playMusic() {
         if (bgMusic && slides[currentSlide].type !== "video") {
             bgMusic.play().catch(function (error) {
@@ -79,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Stop background music
     function stopMusic() {
         if (bgMusic) {
             bgMusic.pause();
@@ -93,10 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!heartsContainer) return;
 
         const heart = document.createElement("span");
-
         heart.className = "heart";
         heart.textContent = Math.random() > 0.5 ? "♡" : "💕";
-
         heart.style.left = Math.random() * 100 + "%";
         heart.style.fontSize = (14 + Math.random() * 20) + "px";
         heart.style.animationDuration = (5 + Math.random() * 5) + "s";
@@ -110,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(createHeart, 650);
 
-    // Open birthday wish
+    // Start
     startBtn.addEventListener("click", function () {
         showScreen(wish);
         playMusic();
@@ -123,59 +113,64 @@ document.addEventListener("DOMContentLoaded", function () {
         showScreen(memories);
     });
 
-    // Display current slide
+    // Render current slide
     function renderSlide() {
         const slide = slides[currentSlide];
 
-        // Stop and reset the previous video
+        // Stop and reset the video
         slideVideo.pause();
         slideVideo.oncanplay = null;
         slideVideo.onerror = null;
         slideVideo.removeAttribute("src");
         slideVideo.load();
 
-        // Update background music
+        // Remove old image event handlers
+        slidePhoto.onload = null;
+        slidePhoto.onerror = null;
+
+        // Music control
         if (slide.type === "video") {
             stopMusic();
         } else {
             playMusic();
         }
 
-        // Display an image
+        // Image slide
         if (slide.type === "image") {
 
             videoWrap.classList.add("hidden");
             photoWrap.classList.remove("hidden");
 
-            // Clear previous image handlers
-            slidePhoto.onload = null;
-            slidePhoto.onerror = null;
-
             slidePhoto.alt = "Birthday memory " + (currentSlide + 1);
 
-            // Handle image loading errors
-            slidePhoto.onerror = function () {
-                console.error("Image failed to load:", slide.src);
-
-                caption.textContent =
-                    "Photo could not load. Please check: " + slide.src;
-            };
-
-            // Image loaded successfully
+            // Show the correct caption after image loads
             slidePhoto.onload = function () {
                 caption.textContent = slide.caption;
+            };
+
+            // Show an error if the image cannot load
+            slidePhoto.onerror = function () {
+                console.error("Image failed to load:", slidePhoto.src);
+                caption.textContent = "Could not load image: " + slide.src;
             };
 
             // Load the selected image
             slidePhoto.src = slide.src;
 
+            // Update caption immediately as well
+            caption.textContent = slide.caption;
+
         } else {
 
-            // Display the video
+            // Video slide
             photoWrap.classList.add("hidden");
             videoWrap.classList.remove("hidden");
 
-            slideVideo.src = slide.src;
+            slideVideo.onerror = function () {
+                console.error("Video failed to load:", slideVideo.error);
+                caption.textContent =
+                    "Video could not load. Check videos/birthday.mp4";
+            };
 
             slideVideo.oncanplay = function () {
                 slideVideo.play().catch(function (error) {
@@ -183,40 +178,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             };
 
-            slideVideo.onerror = function () {
-                console.error("Video failed to load:", slideVideo.error);
-
-                caption.textContent =
-                    "Video could not load. Check videos/birthday.mp4";
-            };
-
+            slideVideo.src = slide.src;
             slideVideo.load();
+
+            caption.textContent = slide.caption;
         }
 
-        // Update caption and slide counter
-        caption.textContent = slide.caption;
-
+        // Slide counter
         slideCounter.textContent =
             (currentSlide + 1) + " / " + slides.length;
 
-        // Update Next button
-        if (currentSlide === slides.length - 1) {
-            nextBtn.textContent = "Finish 💗";
-        } else {
-            nextBtn.textContent = "Next →";
-        }
+        // Next button label
+        nextBtn.textContent =
+            currentSlide === slides.length - 1 ? "Finish 💗" : "Next →";
 
-        // Update Previous button
-        if (currentSlide === 0) {
-            prevBtn.textContent = "← Back";
-        } else {
-            prevBtn.textContent = "← Previous";
-        }
+        // Previous button label
+        prevBtn.textContent =
+            currentSlide === 0 ? "← Back" : "← Previous";
     }
 
     // Next button
     nextBtn.addEventListener("click", function () {
-
         if (currentSlide < slides.length - 1) {
             currentSlide++;
             renderSlide();
@@ -229,27 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Previous button
     prevBtn.addEventListener("click", function () {
-
         if (currentSlide > 0) {
             currentSlide--;
-            renderSlide();
-        } else {
-            slideVideo.pause();
-            showScreen(wish);
-            playMusic();
-        }
-    });
 
-    // Replay the birthday surprise
-    replayBtn.addEventListener("click", function () {
-
-        slideVideo.pause();
-        stopMusic();
-
-        currentSlide = 0;
-
-        renderSlide();
-        showScreen(intro);
-    });
-
-});

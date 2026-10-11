@@ -28,22 +28,22 @@ const bgMusic = document.getElementById("bgMusic");
 const slides = [
     {
         type: "image",
-        src: "images/photo1.jpg",
+        src: "images/photo1.JPG",
         caption: "A little moment to remember ♡"
     },
     {
         type: "image",
-        src: "images/photo2.jpg",
+        src: "images/photo2.JPG",
         caption: "A memory worth keeping ✿"
     },
     {
         type: "image",
-        src: "images/photo3.jpg",
+        src: "images/photo3.JPG",
         caption: "Keep that lovely smile forever ✨"
     },
     {
         type: "image",
-        src: "images/photo4.jpg",
+        src: "images/photo4.JPG",
         caption: "More lovely moments ahead ♡"
     },
     {

@@ -1,316 +1,311 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
---pink: #ff78a8;
---dark-pink: #e75480;
---light-pink: #fff0f5;
---purple: #b9a0e8;
---text: #5e4053;
+    --pink: #ff78a8;
+    --dark-pink: #e75480;
+    --light-pink: #fff0f5;
+    --purple: #b9a0e8;
+    --text: #5e4053;
 }
 
 body {
-min-height: 100vh;
-font-family: 'Quicksand', sans-serif;
-background: linear-gradient(135deg, #ffe4ec, #f5e6ff, #fff0f5);
-color: var(--text);
-overflow-x: hidden;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #f5e6ff, #fff0f5);
+    color: var(--text);
+    overflow-x: hidden;
 }
 
 button {
-font-family: inherit;
-border: none;
-cursor: pointer;
-background: linear-gradient(135deg, #ff78a8, #e88acb);
-color: white;
-padding: 13px 24px;
-border-radius: 30px;
-font-size: 15px;
-font-weight: 700;
-box-shadow: 0 7px 18px rgba(231, 84, 128, 0.22);
-transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff78a8, #e88acb);
+    color: white;
+    padding: 13px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(231, 84, 128, 0.22);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-transform: translateY(-3px);
-box-shadow: 0 10px 22px rgba(231, 84, 128, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(231, 84, 128, 0.3);
 }
 
 button:active {
-transform: scale(0.97);
+    transform: scale(0.97);
 }
 
 .screen {
-display: none;
-min-height: 100vh;
-width: 100%;
-padding: 30px 16px;
-align-items: center;
-justify-content: center;
-position: relative;
-z-index: 1;
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 16px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .screen.active {
-display: flex;
-animation: fadeIn 0.6s ease;
+    display: flex;
+    animation: fadeIn 0.6s ease;
 }
 
 .card {
-width: 100%;
-max-width: 600px;
-padding: 38px 30px;
-border-radius: 28px;
-background: rgba(255, 255, 255, 0.82);
-border: 1px solid rgba(255, 255, 255, 0.9);
-box-shadow: 0 15px 50px rgba(175, 106, 150, 0.14);
-backdrop-filter: blur(10px);
-text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 38px 30px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 50px rgba(175, 106, 150, 0.14);
+    backdrop-filter: blur(10px);
+    text-align: center;
 }
 
 .welcome-card {
-max-width: 520px;
+    max-width: 520px;
 }
 
 .cake {
-font-size: 65px;
-margin-bottom: 15px;
-animation: float 3s ease-in-out infinite;
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
 }
 
 .small-text {
-color: var(--dark-pink);
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-font-weight: 700;
-margin-bottom: 12px;
+    color: var(--dark-pink);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 h1 {
-font-size: clamp(32px, 7vw, 48px);
-line-height: 1.25;
-margin-bottom: 18px;
-color: #704a70;
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    color: #704a70;
 }
 
 h1 span {
-color: var(--dark-pink);
+    color: var(--dark-pink);
 }
 
 .description,
 .wish-message {
-font-size: 16px;
-line-height: 1.9;
-margin: 0 auto 25px;
-max-width: 460px;
-color: #785d73;
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 0 auto 25px;
+    max-width: 460px;
+    color: #785d73;
 }
 
 .decorations {
-font-size: 27px;
-margin: 22px 0;
-letter-spacing: 5px;
+    font-size: 27px;
+    margin: 22px 0;
+    letter-spacing: 5px;
 }
 
 .memories-card {
-max-width: 700px;
-padding: 32px 24px;
+    max-width: 700px;
+    padding: 32px 24px;
 }
 
 .memories-card h1 {
-font-size: clamp(27px, 6vw, 39px);
+    font-size: clamp(27px, 6vw, 39px);
 }
 
 .slider {
-width: 100%;
-margin: 20px auto 12px;
+    width: 100%;
+    margin: 20px auto 12px;
 }
 
+/* Image area */
 .photo-wrap {
-width: 100%;
-height: 340px;
-border-radius: 20px;
-overflow: hidden;
-background: #fff0f5;
-display: flex;
-align-items: center;
-justify-content: center;
+    width: 100%;
+    height: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo-wrap img {
-width: 100%;
-height: 100%;
-object-fit: contain;
-display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
+/* Video area */
 .video-wrap {
-width: 100%;
-border-radius: 20px;
-overflow: hidden;
-background: #f5e6ff;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f5e6ff;
 }
 
 .video-wrap video {
-display: block;
-width: 100%;
-max-height: 440px;
-background: #000;
+    display: block;
+    width: 100%;
+    max-height: 440px;
+    background: #000;
 }
 
+/* Hide inactive media */
 .hidden {
-display: none !important;
+    display: none !important;
 }
 
 .caption {
-min-height: 28px;
-margin: 15px 0 8px;
-font-size: 15px;
-font-weight: 600;
-color: #9b648a;
+    min-height: 28px;
+    margin: 15px 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #9b648a;
 }
 
 .slide-counter {
-margin-bottom: 18px;
-font-size: 13px;
-color: #a77a9b;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: #a77a9b;
 }
 
 .slider-buttons {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 12px;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .secondary-btn {
-background: #f1e5f5;
-color: #875e86;
-box-shadow: none;
+    background: #f1e5f5;
+    color: #875e86;
+    box-shadow: none;
 }
 
 .secondary-btn:hover {
-box-shadow: 0 7px 16px rgba(130, 90, 130, 0.12);
+    box-shadow: 0 7px 16px rgba(130, 90, 130, 0.12);
 }
 
 .tiny-text {
-font-size: 12px;
-color: #a78aa3;
-margin-top: 22px;
+    font-size: 12px;
+    color: #a78aa3;
+    margin-top: 22px;
 }
 
+/* Floating hearts */
 .hearts {
-position: fixed;
-inset: 0;
-overflow: hidden;
-pointer-events: none;
-z-index: 0;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .heart {
-position: absolute;
-bottom: -40px;
-opacity: 0.5;
-animation: rise linear forwards;
+    position: absolute;
+    bottom: -40px;
+    opacity: 0.5;
+    animation: rise linear forwards;
 }
 
 @keyframes fadeIn {
-from {
-opacity: 0;
-transform: translateY(12px);
-}
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
 
-
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes float {
-0%, 100% {
-transform: translateY(0);
-}
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-
-50% {
-    transform: translateY(-9px);
-}
-
-
+    50% {
+        transform: translateY(-9px);
+    }
 }
 
 @keyframes rise {
-from {
-transform: translateY(0) rotate(0deg);
-opacity: 0;
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
 }
 
-
-15% {
-    opacity: 0.5;
-}
-
-to {
-    transform: translateY(-110vh) rotate(25deg);
-    opacity: 0;
-}
-
-
-}
-
+/* Mobile layout */
 @media (max-width: 600px) {
-.screen {
-padding: 18px 12px;
+    .screen {
+        padding: 18px 12px;
+    }
+
+    .card {
+        padding: 30px 19px;
+        border-radius: 23px;
+    }
+
+    .cake {
+        font-size: 54px;
+    }
+
+    .description,
+    .wish-message {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .photo-wrap {
+        height: 300px;
+    }
+
+    .video-wrap video {
+        max-height: 320px;
+    }
+
+    button {
+        padding: 12px 19px;
+        font-size: 14px;
+    }
 }
 
-
-.card {
-    padding: 30px 19px;
-    border-radius: 23px;
-}
-
-.cake {
-    font-size: 54px;
-}
-
-.description,
-.wish-message {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.photo-wrap {
-    height: 300px;
-}
-
-.video-wrap video {
-    max-height: 320px;
-}
-
-button {
-    padding: 12px 19px;
-    font-size: 14px;
-}
-
-
-}
-
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-*,
-*::before,
-*::after {
-animation-duration: 0.01ms !important;
-animation-iteration-count: 1 !important;
-scroll-behavior: auto !important;
-}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
 }

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
+    
 // Get all screens
 const intro = document.getElementById("intro");
 const wish = document.getElementById("wish");
